@@ -8,26 +8,15 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-           
-          var test = new LinkedListPractice();
-          test.AddToEnd(1);
-          test.AddToEnd(2);
-          test.PrintList();
-          Console.WriteLine("\n");
-          test.AddToStart(0);
-          test.PrintList();
+            var test = new int[] {-2, 80, -1, 5, 4, -3, 0};
+            QuickSort.Qs(test, 0, test.Length-1);
 
-          Console.WriteLine("\n");
-          test.AddToEnd(3);
-          test.AddToEnd(4);
-          test.AddToEnd(5);
-          test.AddToEnd(6);
-          test.AddToEnd(7);
-
-
-
-            Console.WriteLine(test.Contains(4));
-
+            for(var i = 0; i < test.Length; i++)
+            {
+                Console.WriteLine(test[i]);
+            }
         }
+
     }
+    
 }

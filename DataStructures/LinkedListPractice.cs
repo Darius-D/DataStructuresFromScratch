@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,22 +7,29 @@ namespace DataStructures
 {
     class LinkedListPractice
     {
-        public PNode Head;
+        public LinkedListNode Head;
 
         public LinkedListPractice()
         {
             Head = null;
         }
 
+        /// <summary>
+        /// Uses recursion to check if "head" is null. If it is it will start the list with a new node
+        /// else it will call the AddNode method in the Node class which will check if the next value is
+        /// null. If it is it will point next to a new node else it will iterate through to the end. 
+        /// </summary>
+        /// <param name="value">int value of the node</param>
+        
         public void AddToEnd(int value)
         {
             if (Head == null)
             {
-                Head = new PNode(value);
+                Head = new LinkedListNode(value);
             }
             else
             {
-                Head.AddPNode(value);
+                Head.AddNode(value);
             }
         }
 
@@ -31,7 +37,7 @@ namespace DataStructures
         {
             if (Head != null)
             {
-                var temp = new PNode(value);
+                var temp = new LinkedListNode(value);
                 temp.Next = Head;
 
                 Head = temp;
@@ -84,43 +90,6 @@ namespace DataStructures
                 return true;
             }
             return false;
-        }
-    }
-
-    public class PNode
-    {
-        public int Value;
-
-        public PNode Next;
-
-        public PNode(int value)
-        {
-            Value = value;
-            Next = null;
-        }
-
-        public void AddPNode( int data)
-        {
-            if (Next == null)
-            {
-                Next = new PNode(data);
-            }
-            else
-            {
-                Next.AddPNode(data);
-            }
-        }
-
-        public void Print()
-        {
-            
-            Console.Write($"|{Value}|->");
-
-            if (Next != null)
-            {
-                Next.Print();
-            }
-                
         }
     }
 }
